@@ -39,10 +39,6 @@ public abstract class AbstractModeModifier extends AbstractModifier {
 	 */
 	protected void setBlock(Block existing, int newID, byte newData, boolean applyPhysics, Processor p) {
 		Dispenser d = (Dispenser) p.getDispenser().getState();
-		if (newID == 46 && (p.getOverride() == null || p.getOverride().getTypeId() != 46)) { //tnt; not overriden
-			existing.getWorld().spawnEntity(existing.getLocation(), EntityType.PRIMED_TNT);
-			return;
-		}
 		if (p.isAreaEnabled()) {
 			int radius = p.getOffset() - 1;
 			int offset = p.getSize();
